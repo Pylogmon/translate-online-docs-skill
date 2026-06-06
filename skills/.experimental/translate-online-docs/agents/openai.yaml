@@ -1,0 +1,4 @@
+interface:
+  display_name: "Translate Online Docs"
+  short_description: "Crawl and translate online docs into deliverables"
+  default_prompt: "Use $translate-online-docs to translate this online documentation into Chinese and export it as mdBook or PDF."
