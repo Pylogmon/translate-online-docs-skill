@@ -1,6 +1,6 @@
 # Translate Online Docs Skill
 
-This repository packages one Codex skill for publishing and installation from GitHub.
+A universal agent skill ([Agent Skills standard](https://agentskills.io)) for crawling, translating, and exporting online documentation. Compatible with **Claude Code** and **OpenAI Codex**.
 
 ## Skill
 
@@ -9,28 +9,46 @@ This repository packages one Codex skill for publishing and installation from Gi
 ## Repository Layout
 
 ```text
-skills/
-  .experimental/
-    translate-online-docs/
-      SKILL.md
-      LICENSE.txt
-      agents/openai.yaml
-      references/workflow.md
-      scripts/prepare_mdbook.py
+translate-online-docs-skill/
+  SKILL.md                   # Skill manifest (Agent Skills standard)
+  LICENSE.txt
+  README.md
+  agents/openai.yaml         # Codex agent interface config
+  references/workflow.md     # Operational runbook for the agent
+  scripts/prepare_mdbook.py  # mdBook project scaffolding script
 ```
 
-## Install From GitHub
+## Install
 
-After publishing this repository, install the skill with Codex:
+### Claude Code
+
+Personal (all projects):
+
+```bash
+git clone https://github.com/<owner>/translate-online-docs-skill.git /tmp/translate-online-docs-skill
+mkdir -p ~/.claude/skills
+cp -r /tmp/translate-online-docs-skill ~/.claude/skills/translate-online-docs
+```
+
+Project-level (shared via git):
+
+```bash
+mkdir -p .claude/skills
+git clone https://github.com/<owner>/translate-online-docs-skill.git .claude/skills/translate-online-docs
+```
+
+Restart Claude Code or start a new session to discover the skill.
+
+### Codex
 
 ```text
-$skill-installer install https://github.com/<owner>/translate-online-docs-skill/tree/main/skills/.experimental/translate-online-docs
+$skill-installer install https://github.com/<owner>/translate-online-docs-skill
 ```
 
 Or install by repo and path:
 
 ```text
-$skill-installer install --repo <owner>/translate-online-docs-skill --path skills/.experimental/translate-online-docs
+$skill-installer install --repo <owner>/translate-online-docs-skill --path .
 ```
 
 Restart Codex after installation so it can discover the new skill.

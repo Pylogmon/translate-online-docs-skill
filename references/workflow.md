@@ -103,10 +103,13 @@ Check these before export:
 
 ## mdBook Export
 
-Prepare an mdBook project:
+Prepare an mdBook project. Resolve the script path relative to the skill directory:
+
+- **Claude Code**: `python3 ${CLAUDE_SKILL_DIR}/scripts/prepare_mdbook.py ...`
+- **Codex / local**: `python3 scripts/prepare_mdbook.py ...` (when working inside the skill directory)
 
 ```bash
-python3 /Users/pylogmon/.codex/skills/translate-online-docs/scripts/prepare_mdbook.py \
+python3 scripts/prepare_mdbook.py \
   --translated-dir "work/translated/zh-Hans" \
   --out "work/exports/mdbook" \
   --title "Translated Documentation"
